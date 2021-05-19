@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link
+  rel="stylesheet"
+  href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
+/>
+<script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+    <link rel="stylesheet" href="src/sass/main.scss" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="./src/js/controller.js"></script>
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="container container__detail">
+      <div class="overlay hidden">
+        <div class="overlay-box">
+              <div class="overlay__container">
+               <div class="goback margin-top-medium-small">
+                 <a href="/index"><img src="/src/img/icon-arrow-left.svg" alt="icon-arrow-right"></a>
+                 <a class="gbackLink" href="/index"><p class="gback">Go back</p></a>
+               </div>
+              <h2 class="overlay__title heading heading-secondary margin-top-medium-small"> New Invoice</h2>
+                <form  class="form" id="form-id" data-simplebar>
+                  <div class="form__bill-from margin-top-medium-small">
+                      <h3 class="heading heading-tertiary titles">
+                          Bill From 
+                      </h3>
+                      <div class="form__group">
+                        <label for="senderStreet" class="form__label">Street Address <span class="label-span hidden">can't be empty</span></label>
+                        <input type="text" class="form__input" name="senderStreet" placeholder="19 Union Terrace" id="senderStreet">     
+                      </div>
+
+                      <div class="form__address" >
+                        <div class="form__group" id= "first">
+                          <label for="senderCity" class="form__label">City<span class="label-span hidden">can't be empty</span></label>
+                          <input type="text" class="form__input" name="senderCity" placeholder="London" id="senderCity">
+                      </div>
+                      <div class="form__group" id ="second">
+                        <label for="senderZipcode" class="form__label">Postal Code<span class="label-span hidden">can't be empty</span></label>
+                        <input type="text" class="form__input" name="senderZipcode" placeholder="33901" id="senderZipcode">
+                    </div>
+                    <div class="form__group" id ="third">
+                      <label for="senderCountry" class="form__label">Country<span class="label-span hidden">can't be empty</span></label>
+                      <input type="text" class="form__input" name ="senderCountry" placeholder="United Kingdom" id="senderCountry">
+                  </div>
+                 </div>
+                  </div>
+                <div class="form__bill-to margin-top-medium-small">
+                  <h3 class="heading heading-tertiary titles">
+                    Bill To 
+                  </h3>
+                    <div class="form__group">
+                      <label for="clientsName" class="form__label">Client's Name<span class="label-span hidden">can't be empty</span></label>
+                      <input type="text" class="form__input" name="clientsName" placeholder="Alex Grim" id="clientsName">
+                    </div>
+                    <div class="form__group">
+                      <label for="clientsEmail" class="form__label">Client's Email<span class="label-span hidden">can't be empty</span></label>
+                      <input type="email" class="form__input" name="clientsEmail" placeholder="alexgrim@mail.com" id="clientsEmail" >
+                    </div>
+                    <div class="form__group">
+                      <label for="clientStreet" class="form__label">Street Address<span class="label-span hidden">can't be empty</span></label>
+                      <input type="text" class="form__input" name= "clientStreet" placeholder="84 Church Way" id="clientStreet">     
+                    </div>
+                    <div class="form__address ">
+                      <div class="form__group">
+                        <label for="clientCity" class="form__label">City<span class="label-span hidden">can't be empty</span></label>
+                        <input type="text" class="form__input" name="clientCity" placeholder="London" id="client-city">
+                    </div>
+                    <div class="form__group">
+                      <label for="clientZipcode" class="form__label">Postal Code<span class="label-span hidden">can't be empty</span></label>
+                      <input type="text" class="form__input" name= "clientZipcode" placeholder="BD1 9PB" id="clientZipcode">
+                  </div>
+                  <div class="form__group" id="country-third">
+                    <label for="client-country" class="form__label">Country<span class="label-span hidden">can't be empty</span></label>
+                    <input type="text" class="form__input" name="clientCountry" placeholder="United Kingdom" id="client-country">
+                </div>
+               </div>
+               <div class="form__date-payment margin-top-small">
+                <div class="form__group">
+                  <label for="issueDate" class="form__label">Issue Date<span class="label-span hidden">can't be empty</span></label>
+                  <input type="date" class="form__input" name="issueDate" placeholder="" id="issueDate">
+              </div>
+              <div class="form__group">
+
+                <div class="payment-terms__container ">
+                  
+                  <div class="select__payment-box">
+                   
+                      <div class="select__payment-container">
+                        <div class="option">
+                          <input type="radio" class="radio" id="net-1day" >
+                          <label for="net-1day">Net 1 Day</label>
+                        </div>
+                        <div class="option">
+                          <input type="radio" class="radio" id="net-7days">
+                          <label for="net-7days">Net 7 Days </label>
+                        </div>
+                        <div class="option">
+                          <input type="radio" class="radio" id="net-14days">
+                          <label for="net-14days">Net 14 Days</label>
+                        </div>
+                        <div class="option">
+                          <input type="radio" class="radio" id="net-30days">
+                          <label for="net-30days">Net 30 Days</label>
+                        </div>
+                      </div>
+                      <p class="selected__payment">Select Payment Terms</p>
+                  </div>
+                </div>
+            <!--     <label for="payment-terms" class="form__label"> Payment Terms</label>
+                <input type="date" class="form__input" placeholder="" id="payment-terms" required> -->
+            </div>
+             </div>
+             <div class="form__group">
+              <label for="projectDescription" class="form__label">Project Description <span class="label-span hidden">can't be empty</span></label>
+              <input type="text" class="form__input" name="projectDescription" placeholder="Graphic Design" id="projectDescription">
+             </div>
+
+             </div>
+           <div class="form__item-list margin-bottom-big ">
+            <h3 class="heading heading-tertiary margin-top-medium titles">Item List</h3>
+
+              <div class="allItems">
+
+            
+                
+
+
+              </div>
+            
+            <div class="allItemMessages">
+              <div class="allItemMessage hidden"> All fields must be added</div>
+              <div class="itemErrorMessage hidden"> An item must be added</div>
+            </div>
+            <div>
+              <input type="button" class="btn__add-item" value="+Add New Item"></input>
+            </div>
+          
+          
+           </div>
+         
+            
+              </form>
+
+
+              </div>
+
+             
+        </div>
+        <div class="btn__section">
+          <button class="btn btn-discard">Discard</button>
+          <input type="button" form="form-id" class="btn btn-draft" value="Save as Draft"></input>
+          <input  class ="btn btn-save" type="button" form="form-id" value="Save & Send"></input>
+        </div>
+      </div>
+      <nav class="sidebar">
+        <div class="sidebar__top">
+          <img src="/src/img/logo.svg" alt="logo" class="sidebar__top--icon" />
+          <div class="sidebar__top--1"></div>
+          <div class="sidebar__top--2"></div>
+        </div>
+        <div class="sidebar__bottom">
+          <div class="sidebar__bottom--1">
+            <img
+              src="/src/img/icon-moon.svg"
+              alt="icon-moon"
+              class="icon-moon"
+            />
+          </div>
+          <div class="sidebar__bottom--2">
+            <div class="img-box">
+              <img src="/src/img/image-avatar.jpg" alt="user-image" />
+            </div>
+          </div>
+        </div>
+      </nav>
+      <header class="header">
+        <div class="header__left-box">
+          <h1 class="invoice__title heading heading-primary">
+            Invoices
+          </h1>
+          <p class="invoice__text">
+            
+            <span class="start-text">There are</span>
+            <span class="number-text">7</span>
+            <span class="total-text">total </span>
+            <span class="end-text">invoice</span>
+            
+          </p>
+        </div>
+        <div class="header__right-box">
+          <div class="header__right-box--1">
+            <div class="header__filter-box">
+              <div class="header__select-title-box">
+                <p class="header__select-title">Filter<span> by status</span></p>
+                <span>
+                  <input type="checkbox" id="radio-check">
+                  <label for="radio-check" class="label__radio-check">
+                    <img  class = "header-arrow"src="/src/img/icon-arrow-down.svg" alt="radio-down">
+                  </label>
+                </span>
+            </div>
+          </div>
+          </div>
+          <div class="header__right-box--2">
+            <button class="btn btn-filter">
+              <div class="icon-plus">
+                <img src="/src/img/icon-plus.svg" alt="icon-plus" />
+              </div>
+              <p>New <span>Invoice</span></p>
+            </button>
+          </div>
+        </div>
+      
+      </header>
+       
+      <main class="main-content">
+        <div class="main-content__default hidden">
+          <div class="empty__icon">
+            <img src="/src/img/illustration-empty.svg" alt="empty-image" />
+          </div>
+          <h2 class="heading heading-secondary">
+            There is nothing here
+          </h2>
+          <p>
+            Create an invoice by clicking the New Invoice button and get started
+          </p>
+        </div>
+        <div class="invoice margin-top-medium">
+
+          <a href="./detail.html" class="invoice__item hidden">
+            <span class="invoice__item--ticket">#RT3080</span>
+            <span class="invoice__item--date">Due 19 Aug 2021</span>
+            <span class="invoice__item--name">Jensen Huang</span>
+            <span class="invoice__item--amount">$1,800.90</span>
+            <div class="status__box">
+              <div class="status">
+                <div class="status__circle"></div>
+                <div class="status__word">Paid</div>
+              </div>
+            </div>
+          
+          </div>
+        </main>
+
+        <div class="options  hidden">
+          <div class="options__radio-group">
+            <input type="radio" class="options__radio-input" id="radio-draft" value="draft" name="status">
+            <label for="radio-draft" class="options__radio-label">
+              <span class="options__radio-button">
+                <img src="/src/img/icon-check.svg" alt="check-icon">
+              </span>
+              Draft
+            </label>
+          </div>
+          <div class="options__radio-group">
+            <input type="radio" class="options__radio-input" id="radio-pending" value="pending" name="status">
+            <label for="radio-pending" class="options__radio-label">
+              <span class="options__radio-button">
+                <img src="/src/img/icon-check.svg" alt="check-icon">
+              </span>
+              Pending
+            </label>
+          </div>
+          <div class="options__radio-group">
+            <input type="radio" class="options__radio-input" id="radio-paid"  value="paid" name="status">
+            <label for="radio-paid" class="options__radio-label">
+              <span class="options__radio-button">
+                <img src="/src/img/icon-check.svg" alt="check-icon">
+              </span>
+             Paid
+            </label>
+          </div>
+        
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
+

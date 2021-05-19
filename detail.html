@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
+  />
+  <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+
+    <link rel="stylesheet" href="src/sass/main.scss" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./src/js/controller.js"></script>
+    <title>Detail</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="overlay overlay-detail hidden">
+        <div class="delete-box hidden">
+          <h1 class="delete-box__title heading-primary">Confirm Deletion</h1>
+          <p class="delete-box__paragraph">
+            Are you sure you want to delete invoice
+            <span class="ticket__number">#XM9141?</span> This action cannot be
+            undone
+          </p>
+
+          <div class="delete-box__btn-container">
+            <button class="btn btn-cancel btn__header-detail">Cancel</button>
+            <button class="btn btn-delete btn__header-detail delete-confirm">
+              Delete
+            </button>
+          </div>
+        </div>
+        <div class="delete-message hidden">
+          <span>Item <span class="id"></span> deleted</span>
+          <a href="/index.html" class="btn btn-goback"> Go back</a>
+        </div>
+        <div class="overlay-box hidden">
+          <div class="overlay__container">
+           <div class="goback margin-top-medium-small">
+             <img src="/src/img/icon-arrow-left.svg" alt="icon-arrow-right">
+             <a class="gbackLink" href="/index"><h5 class="gback"> Go back</h5></a>
+           </div>
+          <h2 class="overlay__title heading heading-secondary">Edit <span class="ticket-edit"><spa class="hashes">#</span></span></h2>
+            <form  class="form" id="form-id" data-simplebar>
+              <div class="form__bill-from margin-top-medium-small">
+                  <h3 class="heading heading-tertiary titles">
+                      Bill From 
+                  </h3>
+                  <div class="form__group">
+                    <label for="senderStreet" class="form__label">Street Address <span class="label-span hidden">can't be empty</span></label>
+                    <input type="text" class="form__input" name="senderStreet" placeholder="19 Union Terrace" id="senderStreet">     
+                  </div>
+
+                  <div class="form__address" >
+                    <div class="form__group" id= "first">
+                      <label for="senderCity" class="form__label">City<span class="label-span hidden">can't be empty</span></label>
+                      <input type="text" class="form__input" name="senderCity" placeholder="London" id="senderCity">
+                  </div>
+                  <div class="form__group" id ="second">
+                    <label for="senderZipcode" class="form__label">Postal Code<span class="label-span hidden">can't be empty</span></label>
+                    <input type="text" class="form__input" name="senderZipcode" placeholder="33901" id="senderZipcode">
+                </div>
+                <div class="form__group" id ="third">
+                  <label for="senderCountry" class="form__label">Country<span class="label-span hidden">can't be empty</span></label>
+                  <input type="text" class="form__input" name ="senderCountry" placeholder="United Kingdom" id="senderCountry">
+              </div>
+             </div>
+              </div>
+            <div class="form__bill-to margin-top-medium-small">
+              <h3 class="heading heading-tertiary titles">
+                Bill To 
+              </h3>
+                <div class="form__group">
+                  <label for="clientsName" class="form__label">Client's Name<span class="label-span hidden">can't be empty</span></label>
+                  <input type="text" class="form__input" name="clientsName" placeholder="Alex Grim" id="clientsName">
+                </div>
+                <div class="form__group">
+                  <label for="clientsEmail" class="form__label">Client's Email<span class="label-span hidden">can't be empty</span></label>
+                  <input type="email" class="form__input" name="clientsEmail" placeholder="alexgrim@mail.com" id="clientsEmail" >
+                </div>
+                <div class="form__group">
+                  <label for="clientStreet" class="form__label">Street Address<span class="label-span hidden">can't be empty</span></label>
+                  <input type="text" class="form__input" name= "clientStreet" placeholder="84 Church Way" id="clientStreet">     
+                </div>
+                <div class="form__address ">
+                  <div class="form__group">
+                    <label for="clientCity" class="form__label">City<span class="label-span hidden">can't be empty</span></label>
+                    <input type="text" class="form__input" name="clientCity" placeholder="London" id="client-city">
+                </div>
+                <div class="form__group">
+                  <label for="clientZipcode" class="form__label">Postal Code<span class="label-span hidden">can't be empty</span></label>
+                  <input type="text" class="form__input" name= "clientZipcode" placeholder="BD1 9PB" id="clientZipcode">
+              </div>
+              <div class="form__group" id="country-third">
+                <label for="client-country" class="form__label">Country<span class="label-span hidden">can't be empty</span></label>
+                <input type="text" class="form__input" name="clientCountry" placeholder="United Kingdom" id="client-country">
+            </div>
+           </div>
+           <div class="form__date-payment margin-top-small">
+            <div class="form__group">
+              <label for="issueDate" class="form__label">Issue Date<span class="label-span hidden">can't be empty</span></label>
+              <input type="date" class="form__input datepicker" name="issueDate" placeholder="" id="issueDate">
+          </div>
+          <div class="form__group">
+
+            <div class="payment-terms__container ">
+              
+              <div class="select__payment-box">
+               
+                  <div class="select__payment-container">
+                    <div class="option">
+                      <input type="radio" class="radio" id="net-1day" >
+                      <label for="net-1day">Net 1 Day</label>
+                    </div>
+                    <div class="option">
+                      <input type="radio" class="radio" id="net-7days">
+                      <label for="net-7days">Net 7 Days </label>
+                    </div>
+                    <div class="option">
+                      <input type="radio" class="radio" id="net-14days">
+                      <label for="net-14days">Net 14 Days</label>
+                    </div>
+                    <div class="option">
+                      <input type="radio" class="radio" id="net-30days">
+                      <label for="net-30days">Net 30 Days</label>
+                    </div>
+                  </div>
+                  <p class="selected__payment">Select Payment Terms</p>
+              </div>
+            </div>
+        <!--     <label for="payment-terms" class="form__label"> Payment Terms</label>
+            <input type="date" class="form__input" placeholder="" id="payment-terms" required> -->
+        </div>
+         </div>
+         <div class="form__group">
+          <label for="projectDescription" class="form__label">Project Description <span class="label-span hidden">can't be empty</span></label>
+          <input type="text" class="form__input" name="projectDescription" placeholder="Graphic Design" id="projectDescription">
+         </div>
+
+         </div>
+       <div class="form__item-list margin-bottom-big ">
+        <h3 class="heading heading-tertiary margin-top-medium titles">Item List</h3>
+
+          <div class="allItems">
+
+         
+            
+          </div>
+        
+        <div class="allItemMessages">
+          <div class="allItemMessage hidden"> All fields must be added</div>
+          <div class="itemErrorMessage hidden"> An item must be added</div>
+        </div>
+        <div>
+          <input type="button" class="btn__add-item" value="+Add New Item"></input>
+        </div>
+      
+      
+       </div>
+     
+        
+          </form>
+
+
+          </div>
+
+         
+    </div>
+    <div class="btn__section btn__section-detail hidden">
+    
+      <button class="btn btn-discard btn-discard-Cancel">Discard</button>
+      <input  class ="btn btn-save save-changes" type="button" form="form-id" value="Save Changes"></input>
+    </div>
+      </div>
+
+      <nav class="sidebar">
+        <div class="sidebar__top">
+          <img src="/src/img/logo.svg" alt="logo" class="sidebar__top--icon" />
+          <div class="sidebar__top--1"></div>
+          <div class="sidebar__top--2"></div>
+        </div>
+        <div class="sidebar__bottom">
+          <div class="sidebar__bottom--1">
+            <img
+              src="/src/img/icon-moon.svg"
+              alt="icon-moon"
+              class="icon-moon"
+            />
+          </div>
+          <div class="sidebar__bottom--2">
+            <div class="img-box">
+              <img src="/src/img/image-avatar.jpg" alt="user-image" />
+            </div>
+          </div>
+        </div>
+      </nav>
+      <header class="header-detail">
+   
+        <div class="all-container">
+          <div class="header-detail__go-back">
+            <a href="/index"><img src="/src/img/icon-arrow-left.svg" alt="" class="left-icon" /></a>
+            <a href="/index" class="left-icon__title">Go back</a>
+          </div>
+          <div class="header-detail__container">
+         
+            <div class="header-detail__left-box">
+              <p class="status-word">Status</p>
+  
+              <div class="status__box header-detail__status-box">
+                <div class="status">
+                  <div class="status__circle circles"></div>
+                  <div class="status__word words">Prepaid</div>
+                </div>
+              </div>
+            </div>
+            <div class="header-detail__right-box">
+              <input type="button" class="btn btn-edit btn__header-detail" value="Edit"></input>
+           <!--    <input type="button" class="btn btn-edit btn__header-detail">Edit</button> -->
+              <input type="button" value="Delete" class="btn btn-delete btn__header-detail delete-first">
+             
+            </input>
+              <button class="btn btn-paid btn__header-detail btn-paid-detail">
+                Mark as Paid
+              </button>
+            </div>
+          </div>
+
+        </div>
+       
+      </header>
+      <main class="main-content">
+        <div class="invoice__detail">
+          <div class="invoice__detail-title margin-bottom-small">
+            <div class="invoice__detail-title__box--1">
+              <h2 class="invoice__detail-title__ticket-number heading-tertiary colorMix">
+                <span>#</span>XM9141
+              </h2>
+              <p class="invoice__detail-title__company-name">Graphic Design</p>
+            </div>
+            <div class="invoice__detail-title__box--2">
+              <p class="company-street">19 Union Terrace</p>
+              <p class="company-city">London</p>
+              <p class="company-zipcode">E13EZ</p>
+              <p class="company-country">United Kindgdom</p>
+            </div>
+          </div>
+          <div class="invoice__detail-customer-info margin-bottom-small">
+            <div class="invoice__detail-dates">
+              <p class="margin-bottom-extra-small">Invoice Date</p>
+              <p
+                class="invoice__detail-invoice-date heading-tertiary margin-bottom-small colorMix"
+              >
+                21 Aug 2021
+              </p>
+              <p class="margin-bottom-extra-small">Payment Due</p>
+              <p class="invoice__detail-payment-due-date heading-tertiary colorMix">
+                20 Aug 2021
+              </p>
+            </div>
+            <div class="invoice__detail-customer-billing-info">
+              <p class="margin-bottom-extra-small ">Bill To</p>
+              <p
+                class="invoice__detail-customer-name heading-tertiary margin-bottom-mini colorMix"
+              >
+                Alex Grin
+              </p>
+              <p class="invoice__detail-customer-street">84 Church Way</p>
+              <p class="invoice__detail-customer-city">Bradford</p>
+              <p class="invoice__detail-customer-country">BDI 9PB</p>
+              <p>United Kindgdom</p>
+            </div>
+            <div class="invoice__detail-customer-email-info">
+              <p class="margin-bottom-extra-small">Sent to</p>
+              <p class="invoice__detail-customer-email heading-tertiary info colorMix">
+                alexgrim@mail.com
+              </p>
+            </div>
+          </div>
+          <div class="invoice__detail-ticket">
+
+            <div class="tabs ">
+
+              <table id="500" class="">
+                <tr>
+                  <th>Item Name</th>
+                  <th class="th-quantity">QTY.</th>
+                  <th class="th price ">Price</th>
+                  <th>Total</th>
+                </tr>
+                <tr>
+                  <td class="item-name">Banner Design</td>
+                  <td class="item-quantity">1</td>
+                  <td class="item-price ">$156.00</td>
+                  <td class="total">$156.00</td>
+                </tr>
+                <tr>
+                  <td class="item-name">Email Design</td>
+                  <td class="item-quantity">2</td>
+                  <td class="item-price">$200.00</td>
+                  <td class="total">$400.00</td>
+                </tr>
+              </table>
+            </div>
+            <div class="total__bar barTotal">
+              <p class="ticket__total-title">Amount Due</p>
+              <p class="invoice__total">$556.00</p>
+            </div>
+          </div>
+        </div>
+
+       
+      </main>
+      <div class="detail-buttons">
+        <button class="btn btn-edit btn-detail-edit">Edit</button>
+        <button class="btn btn-delete btn-delete-small-screen">Delete</button>
+        <button class="btn btn-paid btn-mark-as-paid-small-screen">
+          Mark as Paid
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
